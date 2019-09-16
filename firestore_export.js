@@ -59,10 +59,6 @@ const argv = require('yargs')
     .strict()
     .argv;
 
-
-
-// function initExportTools() {
-
 let filename = argv.filename;
 let projectId = argv.projectId;
 let collectionName = argv.collection;
@@ -72,7 +68,6 @@ console.log('\n---------------------------------------------\n');
 console.log('配置:');
 console.log(`\tExport File      : ${filename}`);
 console.log(`\tProject Id       : ${projectId}`);
-// console.log(`\tDatabase URL     : ${.databaseURL}`);
 console.log(`\tCollection       : ${collectionName}`);
 console.log(`\tSubCollection    : ${subCollection}`);
 console.log('\n---------------------------------------------\n');
@@ -94,9 +89,7 @@ let results = db.collection(collectionName)
   .catch(error => {
     console.log(error);
   })
-
-
-results.then(dt => {
+  .then(dt => {
   getSubCollection(dt).then(() => {
     // Write collection to JSON file
     // 写入 collection (集合) 到 .json 文件中
@@ -104,21 +97,29 @@ results.then(dt => {
       if (err) {
         return console.log(err);
       }
-      console.log("文件已保存!");
+      console.log(`文件已保存![${filename}]`);
     //   console.log('---------------------\r\n' + JSON.stringify(data, null, 4) + '\r\n---------------------\r\n');
     });
   })
 })
 
+// 获取子 collection
 async function getSubCollection(dt) {
   for (let [key, value] of Object.entries([dt[collectionName]][0])) {
     if (subCollection !== undefined) {
-      data[collectionName][key]['subCollection'] = {};
-      await addSubCollection(key, data[collectionName][key]['subCollection']);
+        //FIX: 修改子 collection
+      data[collectionName][key][subCollection] = {};
+      // 
+      await addSubCollection(key, data[collectionName][key][subCollection]);
     }
   }
 }
 
+/**
+ * 键值 数据
+ * @param {*} key 
+ * @param {*} subData 
+ */
 function addSubCollection(key, subData) {
   return new Promise(resolve => {
     db.collection(collectionName).doc(key).collection(subCollection).get()

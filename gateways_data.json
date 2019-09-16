@@ -1,36 +1,62 @@
 {
     "gateways": {
         "Radiant_GW8D9020": {
+            "metadata": {
+                "MAC": "AEF4578D9020",
+                "serial_number": "Radiant_GW8D9020",
+                "public_key": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEiGyulT3ClRIJ7t/5KaTJ57M43kGQ opMGUK5aGPsJ29QKMhXv7vUxWULOaQJZg13t8K/LwYuAeXCmDkby3Yy8YQ=="
+            },
+            "main_type": "gateway",
             "online": false,
             "deviceInfo": {
+                "GW_FW_Ver": "1.0.0",
                 "TL_FW_Ver": "1.0.0",
                 "model": "AUJZ_GWBW01",
                 "mac_addr": "XX:XX:XX:XX:XX",
                 "HW_Ver": "1.0.0",
-                "manufacturer": "aurora lighting inc.",
-                "GW_FW_Ver": "1.0.0"
+                "manufacturer": "aurora lighting inc."
             },
             "config": {
                 "wifi": {
-                    "password": "188188188",
-                    "ssid": "SKY"
+                    "ssid": "SKY",
+                    "password": "188188188"
                 },
                 "device_name": "Gateway_XXXX",
                 "ble_mesh": {
+                    "mesh_id": 42,
+                    "mesh_addr": "XX:XX:XX:XX:XX",
                     "mesh_name": "Randiant",
                     "mesh_password": "123",
-                    "mesh_ltk": "c0 c1 c2 c3 c4 c5 c6 c7 d8 d9 da db dc dd de df",
-                    "mesh_id": 42,
-                    "mesh_addr": "XX:XX:XX:XX:XX"
+                    "mesh_ltk": "c0 c1 c2 c3 c4 c5 c6 c7 d8 d9 da db dc dd de df"
                 }
             },
             "owner": "BjNaUqyEJDh9EwUgFXmwrLwFN8M2",
-            "metadata": {
-                "public_key": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEiGyulT3ClRIJ7t/5KaTJ57M43kGQ opMGUK5aGPsJ29QKMhXv7vUxWULOaQJZg13t8K/LwYuAeXCmDkby3Yy8YQ==",
-                "MAC": "AEF4578D9020",
-                "serial_number": "Radiant_GW8D9020"
-            },
-            "main_type": "gateway"
+            "sub-devices": {
+                "mesh_id_01": {
+                    "mesh_type_id": 49,
+                    "online": true,
+                    "type": "sub-device",
+                    "mac_addr": "XX:XX:XX:XX:XX",
+                    "config": {
+                        "color_temperature": 3200,
+                        "brightness": 100,
+                        "group": {
+                            "sencen": "tv",
+                            "room_id": 1,
+                            "name": "office"
+                        },
+                        "color": 16777215,
+                        "mesh_addr": 0,
+                        "on": false
+                    }
+                },
+                "mesh_id_02": {
+                    "mesh_type_id": 32,
+                    "online": true,
+                    "type": "sub-device",
+                    
+                }
+            }
         }
     }
 }
